@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ImSun } from 'react-icons/im';
+
 import { TodosContext } from '../TodoContext';
 
 const HeadWrapper = styled.div`
@@ -42,7 +43,7 @@ const TodoHead = () => {
   });
 
   const { state } = useContext(TodosContext);
-  const leftWork = state.filter((v) => !v.done);
+  const leftWork = state.filter((todo) => !todo.done);
 
   return (
     <HeadWrapper>

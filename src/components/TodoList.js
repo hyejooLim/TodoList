@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+
 import TodoItem from './TodoItem';
 import { TodosContext } from '../TodoContext';
 
 const ListWrapper = styled.div`
-  height: 360px; //
-  // padding
-  overflow-y: scroll;
+  flex: 1;
+  height: 330px;
+  overflow-y: auto;
 `;
 
 const TodoList = () => {
@@ -14,7 +15,7 @@ const TodoList = () => {
 
   return (
     <ListWrapper>
-      {state && state.map((todo) => (
+      {state.map((todo) => (
         <TodoItem
           key={todo.id}
           id={todo.id}
