@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, memo } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FaCheck } from 'react-icons/fa';
 import { BiTrash } from 'react-icons/bi';
 import PropTypes from 'prop-types';
@@ -11,7 +11,7 @@ const ItemWrapper = styled.div`
   padding: 5px;
   font-size: 15px;
   font-family: 'menlo';
-  
+
   &:hover {
     .remove-button {
       visibility: visible;
@@ -31,14 +31,8 @@ const ItemWrapper = styled.div`
 
     &:hover {
       cursor: pointer;
-      color: #EF4444;
+      color: #ef4444;
     }
-  }
-
-  .text {
-    flex: 1;
-    margin-left: 15px;
-    color: #1EAF8A;
   }
 
   .remove-button {
@@ -48,9 +42,22 @@ const ItemWrapper = styled.div`
 
     &:hover {
       cursor: pointer;
-      color: #EF4444;
+      color: #ef4444;
     }
   }
+`;
+
+const Text = styled.div`
+  flex: 1;
+  margin-left: 15px;
+  color: #1eaf8a;
+
+  ${(props) =>
+    props.done &&
+    css`
+      color: #bfbfbf;
+      text-decoration: line-through;
+    `}
 `;
 
 const TodoItem = memo(({ id, text, done }) => {
@@ -69,9 +76,9 @@ const TodoItem = memo(({ id, text, done }) => {
       <div className='check-work' onClick={onToggle} done={done}>
         {done && <FaCheck />}
       </div>
-      <div className='text' id={id}>
+      <Text className='text' done={done}>
         {text}
-      </div>
+      </Text>
       <div className='remove-button' onClick={onRemove}>
         <BiTrash />
       </div>
