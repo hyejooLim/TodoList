@@ -1,5 +1,5 @@
-import React, { useCallback, useContext } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useCallback, useContext, memo } from 'react';
+import styled from 'styled-components';
 import { FaCheck } from 'react-icons/fa';
 import { BiTrash } from 'react-icons/bi';
 import PropTypes from 'prop-types';
@@ -53,7 +53,7 @@ const ItemWrapper = styled.div`
   }
 `;
 
-const TodoItem = ({ id, text, done }) => {
+const TodoItem = memo(({ id, text, done }) => {
   const { dispatch } = useContext(TodosContext);
 
   const onToggle = useCallback(() => {
@@ -77,7 +77,7 @@ const TodoItem = ({ id, text, done }) => {
       </div>
     </ItemWrapper>
   );
-};
+});
 
 TodoItem.propTypes = {
   id: PropTypes.number.isRequired,

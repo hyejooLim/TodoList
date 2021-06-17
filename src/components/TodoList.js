@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import styled from 'styled-components';
 
 import TodoItem from './TodoItem';
@@ -6,13 +6,13 @@ import { TodosContext } from '../TodoContext';
 
 const ListWrapper = styled.div`
   flex: 1;
-  height: 346px;
+  height: 60%;
   overflow-y: auto;
   background: #E7F3F0;
   padding-top: 16px;
 `;
 
-const TodoList = () => {
+const TodoList = memo(() => {
   const { state } = useContext(TodosContext);
 
   return (
@@ -27,6 +27,6 @@ const TodoList = () => {
       ))}
     </ListWrapper>
   );
-};
+});
 
 export default TodoList;

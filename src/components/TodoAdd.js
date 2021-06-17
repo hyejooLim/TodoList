@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useState, memo } from 'react';
 import styled from 'styled-components';
 import { MdAdd } from 'react-icons/md';
 import shortid from 'shortid';
@@ -23,8 +23,8 @@ const AddWrapper = styled.form`
   }
 
   .add-button {
-    padding: 5px 8px;
-    font-size: 24px;
+    padding: 5px 10px;
+    font-size: 26px;
     font-weight: 600;
     border: none;
     outline: none;
@@ -33,12 +33,16 @@ const AddWrapper = styled.form`
 
     &:hover {
       cursor: pointer;
-      // background:
+      background: #D2F1E9;
+    }
+
+    .md-add:hover {
+      transform: scale(1.1);
     }
   }
 `;
 
-const TodoAdd = () => {
+const TodoAdd = memo(() => {
   const [value, setValue] = useState('');
   const { dispatch } = useContext(TodosContext);
 
@@ -48,13 +52,15 @@ const TodoAdd = () => {
 
   const onAdd = useCallback((e) => {
     e.preventDefault();
-    setValue('');
 
-    dispatch({
-      type: CREATE_TODO,
-      id: shortid.generate(),
-      text: value,
-    });
+    if (value) {
+      dispatch({
+        type: CREATE_TODO,
+        id: shortid.generate(),
+        text: value,
+      });
+      setValue('');
+    }
   }, [value]);
 
   return (
@@ -67,10 +73,10 @@ const TodoAdd = () => {
         placeholder='할 일을 입력하세요.'
       />
       <button type='submit' className='add-button' onClick={onAdd}>
-        <MdAdd />
+        <MdAdd className="md-add" />
       </button>
     </AddWrapper>
   );
-};
+});
 
 export default TodoAdd;
