@@ -5,23 +5,7 @@ export const TodosContext = createContext({
   dispatch: () => {},
 });
 
-const initialState = [
-  {
-    id: 1,
-    text: '리액트 공부하기',
-    done: true,
-  },
-  {
-    id: 2,
-    text: '자소서 쓰기',
-    done: false,
-  },
-  {
-    id: 3,
-    text: '국장 신청하기',
-    done: false,
-  },
-];
+const initialState = [];
 
 export const CREATE_TODO = 'CREATE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
