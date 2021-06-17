@@ -1,26 +1,26 @@
-import React, { createContext, useCallback, useMemo, useReducer } from 'react';
+import React, { createContext, useMemo, useReducer } from 'react';
 
 export const TodosContext = createContext({
   state: {},
-  dispatch: () => {}
+  dispatch: () => {},
 });
 
 const initialState = [
   {
     id: 1,
     text: '리액트 공부하기',
-    done: true
+    done: true,
   },
   {
     id: 2,
     text: '자소서 쓰기',
-    done: false
+    done: false,
   },
   {
     id: 3,
     text: '국장 신청하기',
-    done: false
-  }
+    done: false,
+  },
 ];
 
 export const CREATE_TODO = 'CREATE_TODO';
@@ -31,14 +31,17 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 const reducer = (state, action) => {
   switch (action.type) {
     case CREATE_TODO:
-      return {
-
-      }
+      return state.concat({
+        id: action.id,
+        text: action.text,
+        done: false,
+      });
     case TOGGLE_TODO:
+      return state.map((todo) =>
+        todo.id === action.id ? { ...todo, done: !todo.done } : todo
+      );
     case REMOVE_TODO:
-      return {
-
-      } 
+      return state.filter((todo) => todo.id !== action.id);
     default:
       return state;
   }
@@ -53,6 +56,6 @@ const TodoContext = ({ children }) => {
       {children}
     </TodosContext.Provider>
   );
-}
+};
 
 export default TodoContext;
