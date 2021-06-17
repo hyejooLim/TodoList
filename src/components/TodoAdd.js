@@ -19,6 +19,7 @@ const AddWrapper = styled.form`
     border: none;
     outline: none;
     font-size: 15px;
+    color: #3D3D3D;
   }
 
   .add-button {
@@ -28,6 +29,7 @@ const AddWrapper = styled.form`
     border: none;
     outline: none;
     text-align: center;
+    background: #CAEFE7;
 
     &:hover {
       cursor: pointer;

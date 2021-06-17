@@ -6,7 +6,7 @@ import TodoList from './TodoList';
 import TodoAdd from './TodoAdd';
 
 const LayoutWrapper = styled.div`
-  width: 390px;
+  width: 384px;
   height: 580px;
   background: #f2f2f2;
   position: relative;

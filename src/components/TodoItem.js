@@ -17,7 +17,7 @@ const ItemWrapper = styled.div`
       visibility: visible;
     }
   }
-  
+
   .check-work {
     margin-left: 15px;
     width: 24px;
@@ -38,6 +38,7 @@ const ItemWrapper = styled.div`
   .text {
     flex: 1;
     margin-left: 15px;
+    color: #1EAF8A;
   }
 
   .remove-button {

@@ -6,11 +6,10 @@ import { TodosContext } from '../TodoContext';
 
 const HeadWrapper = styled.div`
   height: 130px;
-  background: #E5E5E5;
+  background: #CAEFE7;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   padding: 20px 38px;
-  margin-bottom: 16px;
 
   & h1 {
     font-size: 24px;
@@ -20,13 +19,14 @@ const HeadWrapper = styled.div`
 
   & .day {
     font-size: 20px;
-    color: blue;
+    color: #1EAF8A;
     margin-top: 10px;
   }
 
   & .left-work {
     font-size: 18px;
     margin-top: 18px;
+    color: #3D3D3D;
   }
 `;
 

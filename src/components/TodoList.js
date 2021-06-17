@@ -6,8 +6,10 @@ import { TodosContext } from '../TodoContext';
 
 const ListWrapper = styled.div`
   flex: 1;
-  height: 330px;
+  height: 346px;
   overflow-y: auto;
+  background: #E7F3F0;
+  padding-top: 16px;
 `;
 
 const TodoList = () => {
