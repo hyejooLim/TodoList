@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import TodoHead from './TodoHead';
 import TodoList from './TodoList';
 import TodoAdd from './TodoAdd';
+import WeatherInfo from './WeatherInfo';
 
 const LayoutWrapper = styled.div`
   width: 384px;
@@ -22,7 +22,7 @@ const LayoutWrapper = styled.div`
 const TodoLayout = () => {
   return (
     <LayoutWrapper>
-      <TodoHead />
+      <WeatherInfo />
       <TodoList />
       <TodoAdd />
     </LayoutWrapper>
