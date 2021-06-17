@@ -1,25 +1,33 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { FaCheck } from 'react-icons/fa';
 import { BiTrash } from 'react-icons/bi';
 import PropTypes from 'prop-types';
+
+import { TodosContext, TOGGLE_TODO, REMOVE_TODO } from '../TodoContext';
 
 const ItemWrapper = styled.div`
   display: flex;
   padding: 5px;
   font-size: 15px;
   font-family: 'menlo';
-
+  
   &:hover {
     .remove-button {
       visibility: visible;
     }
   }
+  
   .check-work {
     margin-left: 15px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid black;
+    border-radius: 50%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       cursor: pointer;
@@ -44,10 +52,15 @@ const ItemWrapper = styled.div`
   }
 `;
 
-const TodoItem = ({ key, id, text, done }) => {
-  const onToggle = useCallback((prev) => !prev);
+const TodoItem = ({ id, text, done }) => {
+  const { dispatch } = useContext(TodosContext);
+
+  const onToggle = useCallback(() => {
+    dispatch({ type: TOGGLE_TODO, id: id, done: done });
+  }, []);
+
   const onRemove = useCallback(() => {
-    // 해당 항목 삭제
+    dispatch({ type: REMOVE_TODO, id: id });
   }, []);
 
   return (
@@ -66,7 +79,6 @@ const TodoItem = ({ key, id, text, done }) => {
 };
 
 TodoItem.propTypes = {
-  key: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   done: PropTypes.bool.isRequired,

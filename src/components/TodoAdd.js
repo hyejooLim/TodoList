@@ -1,10 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import styled from 'styled-components';
 import { MdAdd } from 'react-icons/md';
+import shortid from 'shortid';
+
+import { TodosContext, CREATE_TODO } from '../TodoContext';
 
 const AddWrapper = styled.form`
   display: flex;
-  background: #E5E5E5;
+  background: #e5e5e5;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -28,33 +31,42 @@ const AddWrapper = styled.form`
 
     &:hover {
       cursor: pointer;
-      // background: 
+      // background:
     }
   }
 `;
 
 const TodoAdd = () => {
   const [value, setValue] = useState('');
+  const { dispatch } = useContext(TodosContext);
 
   const onChangeInput = useCallback((e) => {
     setValue(e.target.value);
   }, []);
 
-  const onAdd = useCallback(() => {
+  const onAdd = useCallback((e) => {
+    e.preventDefault();
+    setValue('');
 
-  }, []);
-
+    dispatch({
+      type: CREATE_TODO,
+      id: shortid.generate(),
+      text: value,
+    });
+  }, [value]);
 
   return (
     <AddWrapper>
       <input
-        className="input-text"
+        className='input-text'
         type='text'
         value={value}
         onChange={onChangeInput}
         placeholder='할 일을 입력하세요.'
       />
-      <button className="add-button" onClick={onAdd}><MdAdd /></button>
+      <button type='submit' className='add-button' onClick={onAdd}>
+        <MdAdd />
+      </button>
     </AddWrapper>
   );
 };
