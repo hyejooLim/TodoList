@@ -64,11 +64,11 @@ const TodoItem = memo(({ id, text, done }) => {
   const { dispatch } = useContext(TodosContext);
 
   const onToggle = useCallback(() => {
-    dispatch({ type: TOGGLE_TODO, id: id, done: done });
+    dispatch({ type: TOGGLE_TODO, id, done });
   }, []);
 
   const onRemove = useCallback(() => {
-    dispatch({ type: REMOVE_TODO, id: id });
+    dispatch({ type: REMOVE_TODO, id });
   }, []);
 
   return (
@@ -87,7 +87,7 @@ const TodoItem = memo(({ id, text, done }) => {
 });
 
 TodoItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   done: PropTypes.bool.isRequired,
 };

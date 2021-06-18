@@ -43,8 +43,8 @@ const AddWrapper = styled.form`
 `;
 
 const TodoAdd = memo(() => {
-  const [value, setValue] = useState('');
   const { dispatch } = useContext(TodosContext);
+  const [value, setValue] = useState('');
 
   const onChangeInput = useCallback((e) => {
     setValue(e.target.value);
@@ -56,8 +56,11 @@ const TodoAdd = memo(() => {
     if (value) {
       dispatch({
         type: CREATE_TODO,
-        id: shortid.generate(),
-        text: value,
+        data: {
+          id: shortid.generate(),
+          text: value,
+          done: false
+        }
       });
       setValue('');
     }
