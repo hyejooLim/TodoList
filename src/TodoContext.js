@@ -14,7 +14,7 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 
 // 액션을 처리 (이전 상태 + 액션 => 다음 상태)
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_TODO:
       return state.concat(action.data);
@@ -24,10 +24,10 @@ const reducer = (state, action) => {
       localStorage.setItem(KEY_LS, JSON.stringify(newData));
       return state.concat(action.data);
     case TOGGLE_TODO:
-      const toggle = state.map((todo) =>
+      const toggledData = state.map((todo) =>
         todo.id === action.id ? { ...todo, done: !todo.done } : todo
       );
-      localStorage.setItem(KEY_LS, JSON.stringify(toggle));
+      localStorage.setItem(KEY_LS, JSON.stringify(toggledData));
       return state.map((todo) =>
         todo.id === action.id ? { ...todo, done: !todo.done } : todo
       );
