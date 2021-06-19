@@ -50,6 +50,7 @@ webpack 을 활용한 React 투두리스트
 * Styled-components
 * Context API
 * Weather API
+* localStorage
 * shortid
 
 </br>
