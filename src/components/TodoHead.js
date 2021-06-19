@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ImSun } from 'react-icons/im';
 import { MdCloud } from 'react-icons/md';
 import { BiCloudRain, BiCloudSnow } from 'react-icons/bi';
+import { FaRainbow } from 'react-icons/fa';
 
 import { TodosContext } from '../TodoContext';
 
@@ -65,7 +66,7 @@ const TodoHead = memo(({ weather }) => {
         setWeatherIcon(<BiCloudSnow />);
         break;
       default:
-        setWeatherIcon(<ImSun />);
+        setWeatherIcon(<FaRainbow />);
         break;
     }
   }, [weather]);
