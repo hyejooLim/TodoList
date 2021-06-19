@@ -32,8 +32,8 @@ const reducer = (state = initialState, action) => {
         todo.id === action.id ? { ...todo, done: !todo.done } : todo
       );
     case REMOVE_TODO:
-      const removedState = state.filter((todo) => todo.id !== action.id);
-      localStorage.setItem(KEY_LS, JSON.stringify(removedState));
+      const removedData = state.filter((todo) => todo.id !== action.id);
+      localStorage.setItem(KEY_LS, JSON.stringify(removedData));
       return state.filter((todo) => todo.id !== action.id);
     default:
       return state;
