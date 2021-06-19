@@ -6,10 +6,11 @@ import { TodosContext } from '../TodoContext';
 
 const ListWrapper = styled.div`
   flex: 1;
-  height: 60%;
+  height: 57%;
   overflow-y: auto;
   background: #E7F3F0;
   padding-top: 16px;
+  padding-bottom: 14px;
 `;
 
 const TodoList = memo(() => {
