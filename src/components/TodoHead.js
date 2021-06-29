@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState, memo } from 'react';
 import styled from 'styled-components';
+import dayjs from 'dayjs';
 import { ImSun } from 'react-icons/im';
 import { MdCloud } from 'react-icons/md';
 import { BiCloudRain, BiCloudSnow } from 'react-icons/bi';
@@ -35,25 +36,18 @@ const HeadWrapper = styled.div`
 
 const TodoHead = memo(({ weather }) => {
   const [weatherIcon, setWeatherIcon] = useState('');
-
-  const date = new Date();
-  const dateString = date.toLocaleDateString('ko-KR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
-  const dayString = date.toLocaleDateString('ko-KR', {
-    weekday: 'long',
-  });
-
   const { state } = useContext(TodosContext);
   const leftWork = state.filter((todo) => !todo.done);
 
+  const day = [ '일', '월', '화', '수', '목', '금', '토' ];
+  const todayData = dayjs().format('YYYY년 MM월 DD일');
+  const todayDay = dayjs().day();
+
   // 날씨에 따라 아이콘 변경
   useEffect(() => {
+    // console.log(weather);
     switch (weather) {
-      case 'Sun':
+      case 'Clear':
         setWeatherIcon(<ImSun />);
         break;
       case 'Clouds':
@@ -74,11 +68,11 @@ const TodoHead = memo(({ weather }) => {
   return (
     <HeadWrapper>
       <h1>
-        {dateString}
+        {todayData}
         &nbsp;
         {weatherIcon}
       </h1>
-      <div className='day'>{dayString}</div>
+      <div className='day'>{day[todayDay]}요일</div>
       <div className='left-work'>남은 할 일: {leftWork.length}</div>
     </HeadWrapper>
   );
