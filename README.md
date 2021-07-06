@@ -150,6 +150,8 @@ webpack 을 활용한 React 투두리스트
 </br></br>
 
 🌧 Rain </br>
+<img width="320" alt="Rains" src="https://user-images.githubusercontent.com/71072930/124553120-509af200-de6f-11eb-806a-5fa7c73577c4.png">
+
 🌨 Snow </br>
 
  </br>
