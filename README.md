@@ -34,8 +34,8 @@ webpack 을 활용한 React 투두리스트
   #### 2. 프로젝트 폴더로 이동
   `cd todoList`
   
-  #### 3. npm init
-  ❕ package.json 파일이 생성됨
+  #### 3. package.json 파일 생성
+   `npm init`
   
   #### 4. React 환경 설정
   `npm i react react-dom`
