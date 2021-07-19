@@ -40,7 +40,7 @@ const TodoHead = memo(({ weather }) => {
   const leftWork = state.filter((todo) => !todo.done);
 
   const day = [ '일', '월', '화', '수', '목', '금', '토' ];
-  const todayData = dayjs().format('YYYY년 MM월 DD일');
+  const todayDate = dayjs().format('YYYY년 MM월 DD일');
   const todayDay = dayjs().day();
 
   // 날씨에 따라 아이콘 변경
@@ -68,7 +68,7 @@ const TodoHead = memo(({ weather }) => {
   return (
     <HeadWrapper>
       <h1>
-        {todayData}
+        {todayDate}
         &nbsp;
         {weatherIcon}
       </h1>
