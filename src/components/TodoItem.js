@@ -64,7 +64,7 @@ const TodoItem = memo(({ id, text, done }) => {
   const { dispatch } = useContext(TodosContext);
 
   const onToggle = useCallback(() => {
-    dispatch({ type: TOGGLE_TODO, id, done });
+    dispatch({ type: TOGGLE_TODO, id });
   }, []);
 
   const onRemove = useCallback(() => {
@@ -73,7 +73,7 @@ const TodoItem = memo(({ id, text, done }) => {
 
   return (
     <ItemWrapper>
-      <div className='check-work' onClick={onToggle} done={done}>
+      <div className='check-work' onClick={onToggle}>
         {done && <FaCheck />}
       </div>
       <Text className='text' done={done}>

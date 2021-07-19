@@ -17,7 +17,7 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_TODO:
-      return state.concat(action.data);
+      return state = action.data;
     case CREATE_TODO:
       const data = [...state];
       const newData = data.concat(action.data);
@@ -49,9 +49,6 @@ const TodoContext = ({ children }) => {
     if (loadedData !== null) {
       const parseData = JSON.parse(loadedData); // json형식을 객체 타입으로 변환
       dispatch({ type: LOAD_TODO, data: parseData });
-      console.log(parseData);
-    } else {
-      console.log('null');
     }
   }, []);
 
