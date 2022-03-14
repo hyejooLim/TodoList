@@ -119,7 +119,13 @@ webpack 을 활용한 React 투두리스트
      };
   ```
    ❕ webpack-dev-server 는 소스 코드의 변경점을 감지하여 publicPath 를 수정해줌 (hot reloading)
+</br>
 
+
+  #### 11. Webpack 실행 
+  `webpack`
+  
+  
 </br>
 
 ## ☁️ 기술 스택
