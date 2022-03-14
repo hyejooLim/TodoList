@@ -41,7 +41,7 @@ webpack 을 활용한 React 투두리스트
   `npm i react react-dom`
   
   #### 5. webpack 설치
-  `npm i -D webpack webpack-cli webpack-dev-server` (D option: 개발용)
+  `npm i -D webpack webpack-cli webpack-dev-server @types/webpack-dev-server` (D option: 개발용)
   
   #### 6. babel 설치
   `npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader`
@@ -94,7 +94,7 @@ webpack 을 활용한 React 투두리스트
   
   #### 10. Hot reloader 적용
   * 라이브러리 설치 </br>
-  `npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin` </br></br>
+  `npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin react-refresh` </br></br>
   * webpack.config.js 파일 추가 설정 </br>
   ```javascript
   const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
