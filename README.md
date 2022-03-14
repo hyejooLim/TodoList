@@ -46,6 +46,9 @@ webpack 을 활용한 React 투두리스트
   #### 6. babel 설치
   `npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader`
   
+  #### 6-1. typescript 관련 패키지
+  `npm i -D @types/webpack @types/node @babel/preset-typescript`
+  
   #### 7. loader 설치 (선택)
   `npm i -D style-loader css-loader`
   
