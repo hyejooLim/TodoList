@@ -128,7 +128,7 @@ webpack 을 활용한 React 투두리스트
   `touch tsconfig-for-webpack.json ` </br></br>
   * tsconfig-for-webpack.json 파일 설정  </br>
   
-  ```
+  ```json
   {
       "compilerOptions": {
          "module": "commonjs",
@@ -143,7 +143,7 @@ webpack 을 활용한 React 투두리스트
    ##### ▶︎ Typescript 프로젝트인 경우
    * package.json 파일 수정 </br>
    
-   ```
+   ```json
    "script": {
       "build": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack"
    }
