@@ -47,7 +47,7 @@ webpack 을 활용한 React 투두리스트
   `npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader`
   
   #### 7. loader 설치 (선택)
-  `npm i -D babel-loader style-loader css-loader`
+  `npm i -D style-loader css-loader`
   
   #### 8. 필요한 폴더 / 파일 생성
   ```
