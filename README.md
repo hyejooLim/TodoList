@@ -3,7 +3,7 @@ webpack 을 활용한 React 투두리스트
 
 </br>
 
-••• 작성 중(21-06-20)
+••• 작성 중(22-03-14)
 </br>
 
 ## ☁️ webpack ❓
@@ -35,7 +35,7 @@ webpack 을 활용한 React 투두리스트
   `cd todoList`
   
   #### 3. package.json 파일 생성
-   `npm init`
+  `npm init`
   
   #### 4. React 환경 설정
   `npm i react react-dom`
@@ -46,7 +46,7 @@ webpack 을 활용한 React 투두리스트
   #### 6. babel 설치
   `npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader`
   
-  #### 6-1. typescript 관련 패키지
+  #### 6-1. typescript 관련 패키지 (❗️ 추가)
   `npm i -D @types/webpack @types/node @babel/preset-typescript`
   
   #### 7. loader 설치 (선택)
@@ -119,12 +119,45 @@ webpack 을 활용한 React 투두리스트
      };
   ```
    ❕ webpack-dev-server 는 소스 코드의 변경점을 감지하여 publicPath 를 수정해줌 (hot reloading)
-</br>
+      
+   </br>
 
 
-  #### 11. Webpack 실행 
-  `webpack`
+  #### 11. webpack을 위한 tsconfig 파일 생성 (❗️ 추가)
+  * tsconfig-for-webpack.json 파일 생성 </br>
+  `touch tsconfig-for-webpack.json ` </br></br>
+  * tsconfig-for-webpack.json 파일 설정  </br>
   
+  ```
+  {
+      "compilerOptions": {
+         "module": "commonjs",
+         "moduleResolution": "Node",
+         "target": "es5",
+         "esModuleInterop": true
+      }
+  }
+  ```
+   
+   #### 12. webpack 실행
+   ##### ▶︎ Typescript 프로젝트인 경우
+   * package.json 파일 수정 </br>
+   
+   ```
+   "script": {
+      "build": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack"
+   }
+   ```
+   
+   * webpack 실행 </br>
+   `npm run dev` </br>
+   
+   ☛ ts-node 에러나면 `npm i ts-node`
+   
+   
+   ##### ▶︎ Javascript 프로젝트인 경우
+   * webpack 실행 </br>
+   `npx webpack`
   
 </br>
 
